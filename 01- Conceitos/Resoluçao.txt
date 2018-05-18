@@ -1,0 +1,4 @@
+
+Resoluçao da lista de exercicio em : \\svprwy001zalunoszralf
+
+codigo para exportar: jar cfe nomeAplicação.jar nomeDaClasse classe.class
