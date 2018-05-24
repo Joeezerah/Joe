@@ -3,22 +3,37 @@ package formularios;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.geom.Area;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+
+import org.omg.CORBA.PUBLIC_MEMBER;
 
 import controladores.Acao;
 import controladores.Produto;
 
 public class FormularioPrincipal {
 
-	public static void main(String [] args) {
-
+	//construtor
+	public void inicializaFormulario() {
+		
 	
+		
+
+		//metodo  para importa açao
+		Acao a = new Acao ();
+		
+		// JTable
+		JTable tabela = new JTable(a.exibirDados());	
+
 
 		//Instanciar JFrame
 		JFrame formulario = new JFrame();
@@ -57,9 +72,9 @@ public class FormularioPrincipal {
 		botao.setText("Cadastrar ");
 		botao.setBounds(140, 90, 150, 20);
 
-	
+
 		// JScrollPane - Barra de rolagem englobando o JTable
-		JScrollPane barraRolagem = new JScrollPane();
+		JScrollPane barraRolagem = new JScrollPane(tabela);
 		barraRolagem.setBounds(10, 115, 260, 100);
 
 		//Adcionar uma açao ao botao
@@ -72,9 +87,6 @@ public class FormularioPrincipal {
 				double valor = Double.parseDouble(campo1.getText());
 				int quantidade = Integer.parseInt(campo2.getText());
 
-				
-				//metodo  para importa açao
-				Acao a = new Acao ();
 				//metodo de cadastro
 				a.cadastrar(produto, valor, quantidade);
 
@@ -89,10 +101,59 @@ public class FormularioPrincipal {
 				campo1.requestFocus();
 				campo2.requestFocus();
 
-				barraRolagem.setViewportView(a.exibirDados());
+				tabela.setModel(a.exibirDados());
+
+			}
+             
+		});
+
+		tabela.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+
+				//Obter a linha 
+				int linha = tabela.getSelectedRow();
+
+				// Obter os dados
+				String nomeProduto = tabela.getValueAt(linha, 0).toString();
+				double valorProduto = Double.parseDouble(tabela.getValueAt(linha, 1).toString());
+				int quantidadeProduto = Integer.parseInt(tabela.getValueAt(linha, 2).toString());
+
+				// Criar o novo formulário
+				FormularioAlteracao f = new FormularioAlteracao(nomeProduto, valorProduto, quantidadeProduto, linha);
+				
+
+				// Fechar o FormulárioPrincipal
+				formulario.dispose();
+
+
 
 			}
 
+			@Override
+			public void mousePressed(MouseEvent e) {
+				
+
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
 		});
 
 		//Adcionar componente ao JFrame
@@ -107,6 +168,10 @@ public class FormularioPrincipal {
 
 		//Exibir o formulario
 		formulario.setVisible(true);
+
+
+
+
 
 
 
