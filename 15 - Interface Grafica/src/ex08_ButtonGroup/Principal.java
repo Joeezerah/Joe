@@ -33,7 +33,7 @@ public class Principal {
 		turnoNoturno.setActionCommand("Noturno");
 		
 		//JButton
-		JButton botao = new JButton("Verficar turno");
+		JButton botao = new JButton("Verificar turno");
 		botao.setBounds(50, 50 , 200 , 20);
 		
 		
