@@ -69,10 +69,10 @@ public class Calculo {
 					JOptionPane.showMessageDialog(null, calculoDosInfernos);
 				}else if (combo.getSelectedItem().equals("subtração")){
 					JOptionPane.showMessageDialog(null, calculoDosInfernos1);
-				}else if (combo.getSelectedItem().equals("mulplicação")) {
-					JOptionPane.showMessageDialog(null, calculoDosInfernos2);
-				}else {
+				}else if (combo.getSelectedItem().equals("divisão")) {
 					JOptionPane.showMessageDialog(null, calculoDosInfernos3);
+				}else {
+					JOptionPane.showMessageDialog(null, calculoDosInfernos2);
 				}
 
 
