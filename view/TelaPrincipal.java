@@ -78,7 +78,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
         jdpPanelLayout.setVerticalGroup(
             jdpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 628, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         lbldata.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -103,7 +103,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnTeste.setIcon(new javax.swing.ImageIcon("C:\\Users\\Meu computador\\Desktop\\Raíz\\Joe\\info-alt-48.png")); // NOI18N
         btnTeste.setToolTipText("Informações Fornecedor");
         btnTeste.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,7 +110,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Meu computador\\Desktop\\Raíz\\Joe\\miscellaneous-03-48.png")); // NOI18N
         jButton5.setToolTipText("Listar Fornecedores");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,7 +117,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnCadastroFuncionario.setIcon(new javax.swing.ImageIcon("C:\\Users\\Meu computador\\Desktop\\Raíz\\Joe\\contact-new.png")); // NOI18N
         btnCadastroFuncionario.setToolTipText("Cadastro Funcionario");
         btnCadastroFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,7 +124,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnTarefa.setIcon(new javax.swing.ImageIcon("C:\\Users\\Meu computador\\Desktop\\Raíz\\Joe\\data_analysis-48.png")); // NOI18N
         btnTarefa.setToolTipText("Cadastrar Tarefas ");
         btnTarefa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,7 +152,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        btnSair.setIcon(new javax.swing.ImageIcon("C:\\Users\\Meu computador\\Desktop\\Raíz\\Joe\\logout-48.png")); // NOI18N
         btnSair.setToolTipText("Logout");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,10 +192,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(lbldata))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jdpPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -219,7 +211,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jdpPanel))))
         );
 
         btnTeste.getAccessibleContext().setAccessibleDescription("Vendas");
@@ -285,6 +280,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Login login = new Login();
         login.setVisible(true);
         this.dispose();
+        
+        
     }//GEN-LAST:event_btnSairActionPerformed
 
     /**
