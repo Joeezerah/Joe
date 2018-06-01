@@ -27,13 +27,13 @@ public class TableFactory {
     }
 
     
-    public void alterar(String Novonome, String Novoendereco, String Novocontato, String Novocpf, int linha) {
+    public void alterar(String Novonome, String Novoendereco, String Novocpf, String Novocontato, int linha) {
 
         Cliente p = new Cliente();
         p.nome = Novonome ;
         p.endereco = Novoendereco;
-        p.contato = Novocontato;
-        p.cpf =Novocpf;
+        p.cpf = Novocpf;
+        p.contato =Novocontato;
 
         // Realizar a alteração
         Cliente.dados.set(linha, p);
@@ -65,7 +65,6 @@ public class TableFactory {
     public void alterarr(String Novonome, String Novoendereco, String Novocontato, String Novocpf, int linha) {
 
         Cliente p = new Cliente();
-        p.nome = Novonome ;
         p.endereco = Novoendereco;
         p.contato = Novocontato;
         p.cpf =Novocpf;
