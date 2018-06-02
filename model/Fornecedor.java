@@ -6,9 +6,10 @@ import java.util.ArrayList;
 
 public class Fornecedor {
     
-    public String cnpj;
+
     public  String objeto;
     public String nome;
+     public String cnpj;
     public String contato;
    
     

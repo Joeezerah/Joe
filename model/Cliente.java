@@ -52,4 +52,8 @@ public class Cliente {
 //        this.contato = contato;
 //    }
 
+    public void setnome(String selecione_um_produto) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

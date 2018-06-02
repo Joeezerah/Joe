@@ -10,6 +10,11 @@ public class Produto {
     public String valor;
 
    public static ArrayList<Produto> dados = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return "Produto{" + "nome=" + nome + '}';
+    }
     
     
     
