@@ -16,7 +16,7 @@ public class CadastroProduto {
             
 
             Produto.dados.add(p);
-            System.out.println(Produto.dados.size());
+            
         } catch (Exception e) {
             System.out.println("e " + e);
         }

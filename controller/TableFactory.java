@@ -2,6 +2,7 @@ package controller;
 
 import javax.swing.table.DefaultTableModel;
 import model.Cliente;
+import model.Fornecedor;
 import model.Produto;
 
 public class TableFactory {
@@ -26,31 +27,28 @@ public class TableFactory {
         Cliente.dados.remove(linha);
     }
 
-    
     public void alterar(String Novonome, String Novoendereco, String Novocpf, String Novocontato, int linha) {
 
         Cliente p = new Cliente();
-        p.nome = Novonome ;
+        p.nome = Novonome;
         p.endereco = Novoendereco;
         p.cpf = Novocpf;
-        p.contato =Novocontato;
+        p.contato = Novocontato;
 
         // Realizar a alteração
         Cliente.dados.set(linha, p);
 
     }
-    
-    
+
     public DefaultTableModel exibirDadoss() {
         DefaultTableModel exibirDadoss = new DefaultTableModel();
 
         exibirDadoss.addColumn("Nome");
         exibirDadoss.addColumn("Valor");
         exibirDadoss.addColumn("Quantidade");
-   
 
         for (int i = 0; i < Produto.dados.size(); i++) {
-            exibirDadoss.addRow(new Object[]{Produto.dados.get(i).nome, Produto.dados.get(i).valor, Produto.dados.get(i).quantidade });
+            exibirDadoss.addRow(new Object[]{Produto.dados.get(i).nome, Produto.dados.get(i).valor, Produto.dados.get(i).quantidade});
 
         }
 
@@ -61,16 +59,50 @@ public class TableFactory {
         Produto.dados.remove(linha);
     }
 
-    
-    public void alterarr(String Novonome, String Novoendereco, String Novocontato, String Novocpf, int linha) {
+    public void alterarr(String Novonome, String Novovalor, String Novoquantidade , int linha) {
 
-        Cliente p = new Cliente();
-        p.endereco = Novoendereco;
-        p.contato = Novocontato;
-        p.cpf =Novocpf;
+        Produto p = new Produto();
+        p.nome = Novonome;
+        p.valor = Novovalor;
+        p.quantidade = Novoquantidade;
+        
 
         // Realizar a alteração
-        Cliente.dados.set(linha, p);
+        Produto.dados.set(linha, p);
 
     }
+
+    public DefaultTableModel exibirDados3() {
+        DefaultTableModel exibirDados3 = new DefaultTableModel();
+
+        exibirDados3.addColumn("Nome Objeto Fornecido");
+        exibirDados3.addColumn("Nome Fornecedor");
+        exibirDados3.addColumn("CNPJ");
+         exibirDados3.addColumn("Contato");
+
+        for (int i = 0; i < Fornecedor.dados.size(); i++) {
+            exibirDados3.addRow(new Object[]{Fornecedor.dados.get(i).contato, Fornecedor.dados.get(i).nome, Fornecedor.dados.get(i).cnpj,Fornecedor.dados.get(i).objeto });
+
+        }
+
+        return exibirDados3;
+    }
+
+    public void excluir3(int linha) {
+        Fornecedor.dados.remove(linha);
+    }
+
+    public void alterar3(String Novocontato, String Novonome, String Novocnpj, String Novoobjeto, int linha) {
+
+        Fornecedor p = new Fornecedor();
+        p.contato = Novocontato;
+        p.nome = Novonome;
+        p.cnpj = Novocnpj;
+        p.objeto = Novoobjeto;
+        // Realizar a alteração
+        Fornecedor.dados.set(linha, p);
+
+    }
+    
+   
 }
