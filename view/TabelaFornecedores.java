@@ -1,23 +1,22 @@
 package view;
 
+import controller.CadastrarFornecedor;
 import controller.TableFactory;
-
-
 
 public class TabelaFornecedores extends javax.swing.JInternalFrame {
 
-    
+    CadastrarFornecedor a = new CadastrarFornecedor();
     TableFactory tf = new TableFactory();
 
     public TabelaFornecedores() {
         initComponents();
-        
-    }
-    
-    void preencheTabela(){
-       
+        preencheTabela();
+
     }
 
+    void preencheTabela() {
+        tbForn.setModel(tf.exibirDados3());
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -49,7 +48,7 @@ public class TabelaFornecedores extends javax.swing.JInternalFrame {
 
         tbForn.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null}
+
             },
             new String [] {
                 "Tipo De Produto Fornecido :", "Fornecedor", "CNPJ Fornecedor", "Contato"
@@ -111,14 +110,24 @@ public class TabelaFornecedores extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
-      
+//Obter a linha
+        int linha = tbForn.getSelectedRow();
+        
+        //Obter os dados
+        String objeto = tbForn.getValueAt(linha, 3).toString();
+        String nome = tbForn.getValueAt(linha, 1).toString();       
+        String cnpj = tbForn.getValueAt(linha, 2).toString();
+        String contato = tbForn.getValueAt(linha, 0).toString();
+        
+        //Método para alterar
+        tf.alterar3(contato, nome, cnpj,objeto,  linha);            
     }//GEN-LAST:event_btnAlterarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        if (tbForn.getSelectedRow() >= 0) {
-//            tf.excluir(tbForn.getSelectedRow());
-//            preencheTabela();
-//        }
+           if (tbForn.getSelectedRow() >= 0) {
+            tf.excluir3(tbForn.getSelectedRow());
+            preencheTabela();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

@@ -1,57 +1,53 @@
-package view;
 
+package view;
 import controller.CadastrarFuncionario;
 import java.awt.event.KeyEvent;
 import model.CadastroF;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
-
-    CadastroF usuario = new CadastroF();
+     CadastroF usuario = new CadastroF();
     CadastrarFuncionario cf = new CadastrarFuncionario();
 
+    
     public Login() {
         initComponents();
-        cf.cadastrar("admin", "admin", "admin", "admin", "admin", "admin");
+         cf.cadastrar("admin", "admin", "admin", "admin", "admin", "admin");
     }
+    
+     public void doLogin() {
 
-    public void doLogin() {
         if (validaLogin() == false) {
             JOptionPane.showMessageDialog(null, "usuario invalido");
-
         }
 
     }
-
+    
     public boolean validaLogin() {
-        boolean logou = false;
+    boolean logou = false;
 
-        while (logou == false) {
-            if (usuario.dados.size() > 0) {
-                for (int i = 0; i < usuario.dados.size(); i++) {
+    while (logou == false) {
+        if (usuario.dados.size() > 0) {
+            for (int i = 0; i < usuario.dados.size(); i++) {
 
-                    if (usuario.dados.get(i).senha.equalsIgnoreCase(txtSenha.getText()) && usuario.dados.get(i).usu.equalsIgnoreCase(txtUsu.getText())) {
-                        TelaPrincipal tp = new TelaPrincipal(usuario.dados.get(i).permmissao);
-                        tp.setVisible(true);
-                        this.dispose();
-                        logou = true;
-                        break;
-                    }
-
+                if (usuario.dados.get(i).senha.equalsIgnoreCase(txtSenha.getText()) && usuario.dados.get(i).usu.equalsIgnoreCase(txtUsu.getText())) {
+                    TelaPrincipal tp = new TelaPrincipal(usuario.dados.get(i).permmissao);
+                    tp.setVisible(true);
+                    this.dispose();
+                    logou = true;
+                    break;
                 }
-                
+                 
             }
-            logou = true;
+        }
+         logou = true;
             txtUsu.setText("");
             txtSenha.setText("");
             txtUsu.requestFocus();
-           
-        
-        }
-        return true;
-
     }
-
+    return true;
+    }
+ 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -81,6 +77,11 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Senha:");
 
+        txtSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSenhaActionPerformed(evt);
+            }
+        });
         txtSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtSenhaKeyPressed(evt);
@@ -150,26 +151,30 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        doLogin();
+   doLogin();
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        System.exit(0);
-
+      System.exit(0);
+      
     }//GEN-LAST:event_btnSairActionPerformed
 
-    private void txtSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            doLogin();
+    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
+       
+    }//GEN-LAST:event_txtSenhaActionPerformed
 
-        }
+    private void txtSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyPressed
+    if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            doLogin();
+    }
+
     }//GEN-LAST:event_txtSenhaKeyPressed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-
+  
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
@@ -187,4 +192,5 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField txtUsu;
     // End of variables declaration//GEN-END:variables
 
+   
 }

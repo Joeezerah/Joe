@@ -1,6 +1,7 @@
 package view;
 
 import controller.CadastrarCliente;
+import controller.ListarCombobox;
 import javax.swing.JOptionPane;
 import model.Cliente;
 
@@ -125,8 +126,9 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
             txtCpf.setText("");
 
             JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
-
+           
         }
+        
 
 
     }//GEN-LAST:event_btnSalvarActionPerformed
@@ -145,4 +147,6 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
     private javax.swing.JFormattedTextField txtCpf;
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
+
+  
 }

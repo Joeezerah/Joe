@@ -10,6 +10,15 @@ import model.Fornecedor;
 
 
 public class TabelaProdutos extends javax.swing.JInternalFrame {
+
+    private static int getSelectedRow() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private static Object getValueAt(int linha, int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+ 
 TableFactory tf = new TableFactory();
 Fornecedor c = new Fornecedor();
         CadastroProduto cc = new CadastroProduto();
@@ -38,9 +47,6 @@ Fornecedor c = new Fornecedor();
         txta = new javax.swing.JLabel();
         txtQuantidade = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -73,10 +79,6 @@ Fornecedor c = new Fornecedor();
                 jButton1ActionPerformed(evt);
             }
         });
-
-        jLabel7.setText("Filtrar Pelo Nome :");
-
-        jButton3.setText("Pesquisar");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel8.setText("Produtos Cadastrados Em Estoque");
@@ -115,13 +117,7 @@ Fornecedor c = new Fornecedor();
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtNome)
                             .addComponent(txtProduto)
-                            .addComponent(txtQuantidade, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))
-                        .addGap(69, 69, 69)
-                        .addComponent(jLabel7)
-                        .addGap(39, 39, 39)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(jButton3))
+                            .addComponent(txtQuantidade, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(236, 236, 236)
                         .addComponent(jLabel8))
@@ -133,20 +129,17 @@ Fornecedor c = new Fornecedor();
                     .addGroup(layout.createSequentialGroup()
                         .addGap(143, 143, 143)
                         .addComponent(jButton1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(252, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1)
-                .addGap(23, 23, 23)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtb)
@@ -165,23 +158,11 @@ Fornecedor c = new Fornecedor();
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
                     .addComponent(jButton5))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (cc.cadastrar(txtNome.getText(), txtQuantidade.getText(), txtProduto.getText())) {
-            txtQuantidade.setText("");
-            txtProduto.setText("");
-            txtNome.setText("");
-              preencheTabela();
-
-            JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
-
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         if (jTProdutos.getSelectedRow() >= 0) {
@@ -191,28 +172,42 @@ Fornecedor c = new Fornecedor();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-       if (jTProdutos.getSelectedRow() != -1) {
-           jTProdutos.setValueAt(txtNome.getText(), jTProdutos.getSelectedRow(), 0);
-            jTProdutos.setValueAt(txtProduto.getText(), jTProdutos.getSelectedRow(), 1);
-             jTProdutos.setValueAt(txtQuantidade.getText(), jTProdutos.getSelectedRow(), 2);
-            
+      int linha = jTProdutos.getSelectedRow();
+        
+        //Obter os dados
+        String nome = jTProdutos.getValueAt(linha, 0).toString();
+        String valor = jTProdutos.getValueAt(linha, 1).toString();       
+        String quantidade = jTProdutos.getValueAt(linha, 2).toString();
+        
+        
+        //Método para alterar
+        tf.alterarr(nome, valor, quantidade,linha);    
            
-       }
+       
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (cc.cadastrar(txtNome.getText(), txtQuantidade.getText(), txtProduto.getText())) {
+            txtQuantidade.setText("");
+            txtProduto.setText("");
+            txtNome.setText("");
+            preencheTabela();
+
+            JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
+
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTProdutos;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtProduto;
     private javax.swing.JTextField txtQuantidade;

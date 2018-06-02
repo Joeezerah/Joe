@@ -194,7 +194,7 @@ public class CadastroFornecedor extends javax.swing.JInternalFrame {
             txtCep.setText("");
             txtNumero.setText("");
             txtCnpj.setText("");
-        
+            txtProduto.setText("");           
              
 
             JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
