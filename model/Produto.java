@@ -9,11 +9,11 @@ public class Produto {
     public String quantidade;
     public String valor;
 
-   public static ArrayList<Produto> dados = new ArrayList<>();
+   public static ArrayList<Produto> dadosProd = new ArrayList<>();
 
     @Override
     public String toString() {
-        return "Produto{" + "nome=" + nome + '}';
+        return nome;
     }
     
     
