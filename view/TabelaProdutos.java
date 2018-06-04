@@ -52,7 +52,8 @@ Fornecedor c = new Fornecedor();
         jButton5 = new javax.swing.JButton();
 
         setClosable(true);
-        setTitle("Tabela - Produtos");
+        setTitle("Cadastro - Produtos");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon-person-add-24.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Cadastrar Produto :");

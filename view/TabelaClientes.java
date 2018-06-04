@@ -39,6 +39,7 @@ CadastroCliente a = new CadastroCliente();
 
         setClosable(true);
         setTitle("Tabela - Clientes");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/table-24.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Tabela de Clientes :");

@@ -31,7 +31,8 @@ public class CadastroCliente extends javax.swing.JInternalFrame {
         txtCpf = new javax.swing.JFormattedTextField();
 
         setClosable(true);
-        setTitle("Cadastro - Fornecedor");
+        setTitle("Cadastro - Cliente");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon-person-add-24.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Cadastro De Clientes");

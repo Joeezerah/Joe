@@ -43,6 +43,8 @@ public class CadastroFornecedor extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Cadastro - Fornecedor");
+        setFocusTraversalPolicyProvider(true);
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon-person-add-24.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Informações do Fornecedor");
@@ -63,6 +65,12 @@ public class CadastroFornecedor extends javax.swing.JInternalFrame {
         });
 
         jLabel7.setText("Tipo De Produto Fornecido:");
+
+        txtProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtProdutoActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("Cidade:");
 
@@ -203,6 +211,10 @@ public class CadastroFornecedor extends javax.swing.JInternalFrame {
         
         
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void txtProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProdutoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

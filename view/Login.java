@@ -62,6 +62,8 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
+        setIconImages(null);
+        setResizable(false);
 
         btnEntrar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnEntrar.setText("Entrar");

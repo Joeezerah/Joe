@@ -48,6 +48,8 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
         jcbPermissao = new javax.swing.JComboBox<>();
 
         setClosable(true);
+        setTitle("Cadastro - Funcionario");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icon-person-add-32.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Cadastro Funcionario :");

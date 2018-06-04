@@ -45,6 +45,7 @@ public class TabelaFornecedores extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Tabela - Fornecedores");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/table-24.png"))); // NOI18N
 
         tbForn.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
